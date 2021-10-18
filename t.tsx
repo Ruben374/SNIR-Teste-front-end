@@ -26,7 +26,7 @@ setList(newList)
       <C.container>
         <C.Area>
           <C.Header>
-          Lista de tarefas
+          Lista de tarefas  prither
           </C.Header>
           <AddArea onEnter={handleAddTask}/>
          
@@ -40,3 +40,7 @@ setList(newList)
 }
 
 export default App
+
+
+
+

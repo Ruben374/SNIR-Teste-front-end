@@ -1,8 +1,14 @@
-import React from 'react'
+import React,{ useState } from 'react'
+
 import * as C from './styles'
 import Logo from '../../assets/TASKManager.png'
+import GoogleLogin from "react-google-login";
 
 const SignIn = () => {
+
+ const responseGoogle = (response:any) => {
+  console.log(response);
+}
   return (
     <C.container>
       <C.Area>
@@ -10,10 +16,14 @@ const SignIn = () => {
           <div className='logo'>
             <img src={Logo} />
           </div>
-          <div className='caixa'>
-            <div className='c1'>G</div>
-            Google
-          </div>
+          
+        <GoogleLogin
+    clientId="856488655570-lrtdghjkcstlk301vfv80rni9qnbqj3o.apps.googleusercontent.com"
+    buttonText="Login"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
             <div className='caixa'>
             <div className='c1'>f</div>
             Facebook
