@@ -42,5 +42,11 @@ export const container = styled.div(
 
    
     }
+    button{
+      background-color:transparent;
+      border:none;
+      cursor:pointer;
+      color:rgba(255, 255, 255, 0.6);;
+    }
 `
 )

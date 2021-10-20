@@ -1,5 +1,6 @@
 export type Item={
     id:number;
-    name:string;
-    done:boolean;
+    nome:string;
+    id_usuario:number;
+    feito:boolean;
 }

@@ -77,6 +77,10 @@ export const Area = styled.div`
         border:none;
         border-radius:5px;
         color:#2E2938;
+        text-decoration:none;
+        display:flex;
+        align-items:center;
+        justify-content:center;
          }
 
      }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import * as C from './styles'
 import Logo from '../../assets/TASKManager.png'
 import Banner from '../../assets/Reading list-cuate 1.png'
@@ -6,20 +6,82 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AddBoxIcon from '@material-ui/icons/AddBox'
 import MenuIcon from '@material-ui/icons/Menu';
 import Image from '../../image.png'
+import Tmdb from '../../Api'
 
 const AddTask = () => {
+  const [data,setdata]=useState('')
+  const [taskname,settaskname]=useState('')
+  const foto=localStorage.getItem("foto")
+ const id= localStorage.getItem("id")   
+
+  const nome=localStorage.getItem("nome")
+
+  const[mostrar,setmostrar]=useState(false)
+ useEffect(() => {
+
+
+
+
+    const checkToken = async () => {
+      const c= await Tmdb.l(id)
+      console.log(c)
+      const token = localStorage.getItem("token");
+      if(!token){
+     window.location.href = ('/signin');
+      }
+     else{
+        setmostrar(true)
+      }
+     
+    
+    };
+
+const getdata = async () => {
+     var datax = new Date();
+var dia = String(datax.getDate()).padStart(2, '0');
+var mes = String(datax.getMonth() + 1).padStart(2, '0');
+var ano = datax.getFullYear();
+const dataAtual = dia + '/' + mes + '/' + ano;
+setdata(dataAtual)
+    
+    };
+    checkToken();
+    getdata();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
+
+const SetarTarefa= async()=>{
+
+if(taskname){
+   let c = await Tmdb.cria(taskname,id,data)
+  console.log(c)
+}
+else{
+  alert('vazio')
+}
+
+ 
+
+}
+
+
+
   return (
      <div> 
+     {mostrar &&
    <C.container>
       <C.Head>
           <div className='lado1'>
           <a href='#'> <MenuIcon   style={{ color: 'rgba(255, 255, 255, 0.6)' }}/></a>
           </div>
           <div className='lado2'>
-            <img src={Image}></img>
+            <img src={`${foto}`}></img>
             <div>
-              <span className="name">Ruben André </span>
-              <span className='span'>Ruben André </span>
+              <span className="name">{nome}</span>
+              <a href='/account' className='span'>My account</a>
             </div>
           </div>
         </C.Head>
@@ -27,24 +89,32 @@ const AddTask = () => {
             <C.Area>
         <div className='Con'>
           <div className='caixa'>
-          <ArrowBackIcon className='c1'/> 
+        <a href='/profile'>  <ArrowBackIcon className='c1'/> </a>
              <div className='c2'> <div className='d1'>  Add task</div>  <div className='d2'> Add your tasks to be registered.</div></div>
           </div>
        
           <div className='caixa2'>
             <label>Titla task</label>
-            <input type='text' placeholder='Insert your task' />
+            <input type='text' 
+            placeholder='Insert your task' 
+             value={taskname}
+              onChange={(e)=>settaskname(e.target.value)}
+
+             />
           </div>
            <div className='caixa2'>
             <label>Date</label>
-            <input type='date' placeholder='Today' value='1' />
-
+            <input type='text' placeholder='Today' 
+            value='Today' onChange={(e)=>setdata(e.target.value)}
+               disabled />
+             
           </div>
-          <button className='Btn'>Create task</button>
+          <button className='Btn' onClick={()=>SetarTarefa()}>Create task</button>
            <button className='Btn'>Edit task</button>
         </div>
       </C.Area>
     </C.container>
+}
     </div> 
   
   

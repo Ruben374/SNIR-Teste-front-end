@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import * as C from './styles'
 import Logo from '../../assets/TASKManager.png'
 import Banner from '../../assets/Reading list-cuate 1.png'
@@ -10,8 +10,42 @@ import Imagem from '../../imagem.png'
 import Vetor from '../../vetor.png'
 
 const Account = () => {
+  const[mostrar,setmostrar]=useState(false)
+  const foto=localStorage.getItem("foto")
+ const id= localStorage.getItem("id")   
+const usuario= localStorage.getItem("usuario")  
+  const nome=localStorage.getItem("nome")
+
+ useEffect(() => {
+    const checkToken = async () => {
+      const token = localStorage.getItem("token");
+      if(!token){
+     window.location.href = ('/signin');
+      }
+     else{
+        setmostrar(true)
+      }
+     
+    
+    };
+
+    checkToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+const logout=()=>{
+
+  localStorage.removeItem("token")
+ localStorage.removeItem("foto")
+  localStorage.removeItem("nome")
+   localStorage.removeItem("usuario")
+    localStorage.removeItem("id")
+    window.location.href = ('/');
+}
+
   return (
     <div>
+    {mostrar &&
       <C.container>
         <C.Head>
           <div className='lado1'>
@@ -19,17 +53,17 @@ const Account = () => {
               {' '}
               <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
             </a>
-            <a href='#' className='f'>
+            <a href='/addtask' className='f'>
               {' '}
               <AddBoxIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
               Add Task
             </a>
           </div>
           <div className='lado2'>
-            <img src={Image}></img>
+            <img src={`${foto}`}></img>
             <div>
-              <span className='name'>Ruben André </span>
-              <span className='span'>Ruben André </span>
+              <span className='name'>{nome}</span>
+              <a href='/account' className='span'>My account </a>
             </div>
           </div>
         </C.Head>
@@ -45,9 +79,9 @@ const Account = () => {
               </div>
             </div>
             <div className='lado22'>
-              <img src={Imagem} ></img>
+              <img src={`${foto}`}></img>
               <div>
-                <span className='name'>Ruben André </span>
+                <span className='name'>{nome} </span>
                 <span className='span'>Ruben André </span>
               </div>
             </div>
@@ -55,16 +89,17 @@ const Account = () => {
                <div className='Banner'>
           <div className='BannerLeft'>
             <div className='BannerText1'>Display Name</div>
-              <div className='BannerText2'>Ruben André</div>
-               <div className='BannerText1'>Email</div>
-              <div className='BannerText2'>rubandre14@gmail.com</div>
+              <div className='BannerText2'>{nome}</div>
+               <div className='BannerText1'>User</div>
+              <div className='BannerText2'>{usuario}</div>
             
           </div>
      <img src={Vetor} width="147px"/>
         </div>
-        <div className='btn'><button>ola mundo</button></div>
+        <div className='btn'><button onClick={()=>logout()}>log out</button></div>
         </C.Area>
       </C.container>
+}
     </div>
   )
 }
