@@ -74,14 +74,20 @@ const App = () => {
     setList(cc.tarefas)
   }
   const [vx,setvx]=useState(false)
-
+const mudar=()=>{
+if(vx){
+  setvx(false)
+}
+}
   return (
+    <>
+ { vx &&
+       <C.c ><button onClick={()=>setvx(!vx)}>X</button ></C.c>
+       }
     <div>
       {mostrar && (
-        <C.container>
-        { vx &&
-       <div className="lj"><button onClick={()=>setvx(!vx)}>X</button ></div>
-       }
+        <C.container onClick={()=>mudar()}>
+       
           <C.Head>
             <div className='lado1'>
             
@@ -90,7 +96,7 @@ const App = () => {
               <a href='/addtask' className='f'>
                 {' '}
                 <LibraryAddIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
-                Add Task
+                <span>Add Task</span> 
               </a>
             </div>
             <div className='lado2'>
@@ -131,6 +137,7 @@ const App = () => {
         </C.container>
       )}
     </div>
+    </>
   )
 }
 

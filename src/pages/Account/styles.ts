@@ -5,6 +5,13 @@ export const container = styled.div`
   min-height: 100vh;
 `
 
+export const c = styled.div`
+   position:absolute;
+   background-color: red;
+   min-width:300px;
+   min-height: 100vh; 
+`
+
 export const Area = styled.div`
   margin: auto;
   max-width: 500px;
@@ -170,6 +177,10 @@ export const Head = styled.div`
     color: 'red';
 
     .f {
+
+      span{ 
+      margin-left: 5px;
+      }
       margin-left: 15px;
       text-decoration: none;
       color: rgba(255, 255, 255, 0.6);
@@ -190,6 +201,7 @@ export const Head = styled.div`
       max-width: 90px;
       margin: 0;
     }
+    a{text-decoration:none;}
     div {
         @media (max-width: 800px) {
         display: none;

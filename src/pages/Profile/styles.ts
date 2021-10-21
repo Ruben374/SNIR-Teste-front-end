@@ -1,30 +1,29 @@
 import styled from 'styled-components'
 
 export const container = styled.div`
-  background-color: #2E2938;
+  background-color: #2e2938;
   color: #797a81;
   min-height: 100vh;
-
-.lj{
-  position:absolute;
-   background-color: red;
-min-width:300px;
-  min-height: 100vh; 
-}
-
+`
+export const c = styled.div`
+  position: absolute;
+  background-color: red;
+  min-width: 300px;
+  min-height: 100vh;
 `
 
 export const Area = styled.div`
   margin: auto;
   max-width: 980px;
   padding: 10px;
+  padding-bottom: 50px;
 
   .fd {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-   
+
     font-size: 32px;
     font-weight: bold;
     color: #ffff;
@@ -34,24 +33,22 @@ export const Area = styled.div`
     }
   }
 
-  .df{
-      font-size: 24px;
-      margin-bottom: 10px;
-        margin-top: 10px;
+  .df {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
-  .add{
+  .add {
+    @media (max-width: 800px) {
+      display: flex;
+    }
 
-      @media(max-width: 800px) {
-   display:flex;
-  }
+    display: none;
+    align-self: center;
 
-    display:none;
-    align-self:center;
-   
-         align-items:center;
-         margin-top: 110px;
-          justify-content:center;
-        
+    align-items: center;
+    margin-top: 110px;
+    justify-content: center;
   }
 `
 
@@ -77,28 +74,28 @@ export const Head = styled.div`
   justify-content: space-between;
   align-items: center;
 
-.lado1{
-
-    display:flex;
+  .lado1 {
+    display: flex;
     flex-direction: row;
-    color:'red';
-   
-    
-       .f{
-             
-      @media(max-width: 800px) {
-   display:none;
-  }
-           margin-left:15px;
-           text-decoration:none;
-           color:rgba(255, 255, 255, 0.6);
-           justfiy-content: center;
-           display:flex;
-         
+    color: 'red';
 
-       }
-    
-}
+    .f {
+      @media (max-width: 800px) {
+        display: none;
+      }
+
+      margin-left: 15px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      justfiy-content: center;
+      display: flex;
+
+      span{ 
+      margin-left: 5px;
+      }
+
+    }
+  }
   .lado2 {
     display: flex;
     flex-direction: row;
@@ -108,21 +105,22 @@ export const Head = styled.div`
       height: 52px;
       width: 52px;
     }
-    .name{
-  
+    a {
+      text-decoration: none;
+    }
+    .name {
       max-width: 90px;
- margin:0;
+      margin: 0;
     }
     div {
-
-              @media(max-width: 800px) {
-   display:none;
-  }
+      @media (max-width: 800px) {
+        display: none;
+      }
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-       flew-wrap:wrap;
+      flew-wrap: wrap;
       height: 52px;
       font-size: 13px;
       font-weight: bold;
@@ -131,7 +129,7 @@ export const Head = styled.div`
       .span {
         font-size: 10px;
         color: #b4acf9;
-        margin:0;
+        margin: 0;
       }
     }
   }

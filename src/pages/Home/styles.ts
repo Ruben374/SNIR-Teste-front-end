@@ -5,6 +5,13 @@ export const container = styled.div`
   min-height: 100vh;
 `
 
+export const c = styled.div`
+   position:absolute;
+   background-color: red;
+   min-width:100%;
+   min-height: 100vh; 
+`
+
 export const Area = styled.div`
   margin: auto;
   max-width: 980px;

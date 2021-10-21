@@ -4,6 +4,12 @@ export const container = styled.div`
   background-color: #2e2938;
   min-height: 100vh;
 `
+export const c = styled.div`
+   position:absolute;
+   background-color: red;
+   min-width:300px;
+   min-height: 100vh; 
+`
 
 export const Area = styled.div`
   margin: auto;
@@ -141,6 +147,7 @@ export const Head = styled.div`
       height: 52px;
       width: 52px;
     }
+     a{text-decoration:none;}
     .name {
       max-width: 90px;
       margin: 0;

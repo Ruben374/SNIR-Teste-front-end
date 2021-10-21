@@ -40,20 +40,30 @@ const Account = () => {
     window.location.href = '/'
   }
 
+  const [vx,setvx]=useState(false)
+const mudar=()=>{
+if(vx){
+  setvx(false)
+}
+}
+
   return (
+    <>
+  { vx &&
+       <C.c ><button onClick={()=>setvx(!vx)}>X</button ></C.c>
+       }   
     <div>
       {mostrar && (
-        <C.container>
+        <C.container onClick={()=>mudar()}>
           <C.Head>
             <div className='lado1'>
-              <a href='#'>
-                {' '}
-                <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
-              </a>
+             
+              <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)',cursor:'pointer' }} onClick={()=>setvx(!vx)} />
+            
               <a href='/addtask' className='f'>
                 {' '}
                 <LibraryAddIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
-                Add Task
+                <span>Add Task</span>
               </a>
             </div>
             <div className='lado2'>
@@ -70,7 +80,7 @@ const Account = () => {
           <C.Area>
             <div className='Con'>
               <div className='caixa'>
-                <ArrowBackIcon className='c1' />
+                 <a href='javascript:history.back()'>  <ArrowBackIcon className='c1'/> </a>
                 <div className='c2'>
                   {''}
                   <div className='d1'> My profile</div>{' '}
@@ -101,6 +111,7 @@ const Account = () => {
         </C.container>
       )}
     </div>
+    </>
   )
 }
 
