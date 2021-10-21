@@ -4,6 +4,14 @@ export const container = styled.div`
   background-color: #2E2938;
   color: #797a81;
   min-height: 100vh;
+
+.lj{
+  position:absolute;
+   background-color: red;
+min-width:300px;
+  min-height: 100vh; 
+}
+
 `
 
 export const Area = styled.div`
@@ -31,6 +39,20 @@ export const Area = styled.div`
       margin-bottom: 10px;
         margin-top: 10px;
   }
+  .add{
+
+      @media(max-width: 800px) {
+   display:flex;
+  }
+
+    display:none;
+    align-self:center;
+   
+         align-items:center;
+         margin-top: 110px;
+          justify-content:center;
+        
+  }
 `
 
 export const Header = styled.h1`
@@ -48,7 +70,7 @@ export const Head = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  border-bottom: 1px solid #ccc;
+
   background: #363041;
   z-index: 2;
   display: flex;
@@ -64,6 +86,9 @@ export const Head = styled.div`
     
        .f{
              
+      @media(max-width: 800px) {
+   display:none;
+  }
            margin-left:15px;
            text-decoration:none;
            color:rgba(255, 255, 255, 0.6);
@@ -84,11 +109,15 @@ export const Head = styled.div`
       width: 52px;
     }
     .name{
-      
+  
       max-width: 90px;
  margin:0;
     }
     div {
+
+              @media(max-width: 800px) {
+   display:none;
+  }
       display: flex;
       flex-direction: column;
       justify-content: center;

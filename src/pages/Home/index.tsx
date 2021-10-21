@@ -42,6 +42,7 @@ const[mostrar,setmostrar]=useState(false)
             <a href='#'>Resources</a>
           </div>
           <button className='Headerbtn'>Sign in</button>
+          <div className='menu'>ola mundo</div>
         </div>
 
         <div className='Banner'>

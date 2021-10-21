@@ -17,6 +17,10 @@ export const Area = styled.div`
     aling-items: center;
 
     .HeaderList {
+               @media(max-width: 800px) {
+  display:none;
+   
+  }
       color: rgba(255, 255, 255, 0.8);
       margin-top: 10px;
       display: flex;
@@ -36,6 +40,10 @@ export const Area = styled.div`
       } 
     }
     .Headerbtn{ 
+
+         @media(max-width: 800px) {
+      display:none;
+     }
         cursor:pointer;
         color:#ffff;
         background-color:#b4acf9;
@@ -44,9 +52,21 @@ export const Area = styled.div`
        border:none;
         border-radius:5px;
     }
+    .menu{
+      display:none;
+         @media(max-width: 800px) {
+      display:block;
+     }
+    }
   }
 
   .Banner{
+
+
+     @media(max-width: 800px) {
+    flex-direction: column;
+   
+  }
       display: flex;
       justify-content:space-between;
       align-items:center;

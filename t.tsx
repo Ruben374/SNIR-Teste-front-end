@@ -44,3 +44,10 @@ export default App
 
 
 
+  @media(max-width: 800px) {
+    flex-direction: column;
+    position: relative;
+  }
+
+
+

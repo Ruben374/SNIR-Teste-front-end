@@ -120,9 +120,15 @@ export const Area = styled.div`
              color:rgba(255, 255, 255,0.8);
              font-weight: bold;
          }
-       
 
+
+        
      }
+            .image{
+
+
+
+       }
      
     
   }
@@ -185,6 +191,9 @@ export const Head = styled.div`
       margin: 0;
     }
     div {
+        @media (max-width: 800px) {
+        display: none;
+      }
       display: flex;
       flex-direction: column;
       justify-content: center;

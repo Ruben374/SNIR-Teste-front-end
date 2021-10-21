@@ -60,10 +60,22 @@ export const Area = styled.div`
 }
 
  }
+
+
+
+
  .caixa2{
+
+
+ 
+
+
+
+
+
      display:flex;
      flex-direction:column;
-     width:600px;
+    min-width:100%;
      border-radius: 6px;
      label{
        color: #B4ACF9;
@@ -86,7 +98,7 @@ export const Area = styled.div`
           cursor:pointer;
         color:#2E2938;
         background-color:#B4ACF9;
-   width:600px;
+   min-width:100%;
        height:50px;
        border:none;
         border-radius:6px;
@@ -100,7 +112,7 @@ export const Head = styled.div`
   top: 0;
   right: 0;
   left: 0;
- 
+
   background: #363041;
   z-index: 2;
   display: flex;
@@ -134,6 +146,9 @@ export const Head = styled.div`
       margin: 0;
     }
     div {
+      @media (max-width: 800px) {
+        display: none;
+      }
       display: flex;
       flex-direction: column;
       justify-content: center;

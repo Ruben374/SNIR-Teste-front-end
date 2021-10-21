@@ -57,7 +57,8 @@ const SetarTarefa= async()=>{
 
 if(taskname){
    let c = await Tmdb.cria(taskname,id,data)
-  console.log(c)
+   alert('tarefa adicionada')
+   settaskname('')
 }
 else{
   alert('vazio')
@@ -110,7 +111,7 @@ else{
              
           </div>
           <button className='Btn' onClick={()=>SetarTarefa()}>Create task</button>
-           <button className='Btn'>Edit task</button>
+         
         </div>
       </C.Area>
     </C.container>

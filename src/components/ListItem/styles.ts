@@ -27,7 +27,7 @@ export const container = styled.div(
     input{
     width:25px;
     height:25px;
-    margin-right:5px;
+    margin-right:15px;
     }
      label{
     color:#CCC;
@@ -36,6 +36,8 @@ export const container = styled.div(
     }
     .Taskdate{
       color:#B4ACF9;
+      align-self:flex-start;
+      margin-left:45px;
     }
     
   }
