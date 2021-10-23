@@ -29,8 +29,8 @@ const SignIn = () => {
   }, [])
 
   const responseFacebook = async (response: any) => {
-    console.log(response)
-    if (response) {
+
+    if (response.status!="unknown") {
       let c = await Tmdb.signin(
         response.name,
         response.userID,

@@ -5,8 +5,11 @@ import Banner from '../../assets/Reading list-cuate 1.png'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import AddBoxIcon from '@material-ui/icons/AddBox'
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
 import Image from '../../image.png'
 import Tmdb from '../../Api'
+
 
 const AddTask = () => {
   const [data,setdata]=useState('')
@@ -77,9 +80,17 @@ if(vx){
 
   return (
     <>
- { vx &&
-       <C.c ><button onClick={()=>setvx(!vx)}>X</button ></C.c>
-       }  
+    {vx && (
+        <C.c>
+         <CloseIcon  className='btnclose'  onClick={() => setvx(!vx)}/>
+          <div className='display'>
+          <div className='diferent'>About us</div>
+          <div>Cases</div>
+          <div>Resources</div>
+          
+          </div>
+        </C.c>
+      )} 
 
      <div style={{ minHeight:'100vh',backgroundColor:'#2E2938'}}> 
      {mostrar &&
@@ -88,13 +99,20 @@ if(vx){
           <div className='lado1'>
           <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)',cursor:'pointer' }} onClick={()=>setvx(!vx)} />
           </div>
-          <div className='lado2'>
-            <img src={`${foto}`}></img>
-            <div>
-              <span className="name">{nome}</span>
-              <a href='/account' className='span'>My account</a>
-            </div>
-          </div>
+           <div className='lado2'>
+                <img src={`${foto}`}></img>
+                <div>
+                  <span className='name'>{nome}</span>
+                  <a href='/account' className='span'>
+                  My account
+                    <span style={{color:'white'}}> ⇾</span>
+                
+                  </a>
+                </div>
+                <a href='/account' className=''>
+                  <ArrowDownwardIcon className='arrow' />
+                </a>
+              </div>
         </C.Head>
 
             <C.Area>

@@ -9,7 +9,9 @@ import AddBoxIcon from '@material-ui/icons/AddBox'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd'
-import CloseIcon from '@material-ui/icons/Close';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import CloseIcon from '@material-ui/icons/Close'
+
 import Tmdb from '../../Api'
 
 const App = () => {
@@ -35,7 +37,7 @@ const App = () => {
       let c = await Tmdb.l(id)
       console.log(c.tarefas)
       setList(c.tarefas)
-      console.log( window.screen.height);
+      console.log(window.screen.height)
     }
 
     checkToken()
@@ -85,12 +87,11 @@ const App = () => {
     <>
       {vx && (
         <C.c>
-         <CloseIcon  className='btnclose'  onClick={() => setvx(!vx)}/>
+          <CloseIcon className='btnclose' onClick={() => setvx(!vx)} />
           <div className='display'>
-          <div className='diferent'>About us</div>
-          <div>Cases</div>
-          <div>Resources</div>
-          
+            <div className='diferent'>About us</div>
+            <div>Cases</div>
+            <div>Resources</div>
           </div>
         </C.c>
       )}
@@ -120,9 +121,14 @@ const App = () => {
                 <div>
                   <span className='name'>{nome}</span>
                   <a href='/account' className='span'>
-                    My account{' '}
+                  My account
+                     <span style={{color:'white'}}> ⇾</span>
+                
                   </a>
                 </div>
+                <a href='/account' className=''>
+                  <ArrowDownwardIcon className='arrow' />
+                </a>
               </div>
             </C.Head>
 

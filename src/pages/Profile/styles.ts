@@ -22,7 +22,7 @@ export const c = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    margin-top: 60%;
+    margin-top: 200px;
     max-width: 100%;
     font-size: 24px;
     font-weight: bold;
@@ -122,6 +122,15 @@ export const Head = styled.div`
     }
   }
   .lado2 {
+
+
+    .arrow{
+      font-size:20px;
+      color:rgba(255, 255, 255,1);
+        @media (min-width: 800px) {
+        display: none;
+      }
+    }
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -5,12 +5,37 @@ export const container = styled.div`
   min-height: 100vh;
 `
 export const c = styled.div`
-   position:absolute;
-   background-color: red;
-   min-width:300px;
-   min-height: 100vh; 
-`
+  position: absolute;
+  background-color: #b4acf9;
+  min-width: 300px;
+  min-height: 100vh;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  .btnclose {
+    display: flex;
+    align-self: flex-end;
+  }
+  .display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-top: 200px;
+    max-width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
 
+    div {
+      margin-bottom: 10px;
+    }
+
+    .diferent {
+      color: #2e2938;
+    }
+  }
+`
 export const Area = styled.div`
   margin: auto;
   max-width: 600px;
@@ -139,6 +164,15 @@ export const Head = styled.div`
     }
   }
   .lado2 {
+   
+  .arrow{
+      font-size:20px;
+      color:rgba(255, 255, 255,1);
+        @media (min-width: 800px) {
+        display: none;
+      }
+    }
+
     display: flex;
     flex-direction: row;
     align-items: center;
