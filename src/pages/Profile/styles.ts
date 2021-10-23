@@ -7,9 +7,35 @@ export const container = styled.div`
 `
 export const c = styled.div`
   position: absolute;
-  background-color: red;
+  background-color: #b4acf9;
   min-width: 300px;
   min-height: 100vh;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  .btnclose {
+    display: flex;
+    align-self: flex-end;
+  }
+  .display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-top: 60%;
+    max-width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+
+    div {
+      margin-bottom: 10px;
+    }
+
+    .diferent {
+      color: #2e2938;
+    }
+  }
 `
 
 export const Area = styled.div`
@@ -90,10 +116,9 @@ export const Head = styled.div`
       justfiy-content: center;
       display: flex;
 
-      span{ 
-      margin-left: 5px;
+      span {
+        margin-left: 5px;
       }
-
     }
   }
   .lado2 {

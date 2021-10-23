@@ -8,7 +8,8 @@ import Image from '../../image.png'
 import AddBoxIcon from '@material-ui/icons/AddBox'
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd'
+import CloseIcon from '@material-ui/icons/Close';
 import Tmdb from '../../Api'
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
       let c = await Tmdb.l(id)
       console.log(c.tarefas)
       setList(c.tarefas)
+      console.log( window.screen.height);
     }
 
     checkToken()
@@ -73,70 +75,85 @@ const App = () => {
     let cc = await Tmdb.l(t)
     setList(cc.tarefas)
   }
-  const [vx,setvx]=useState(false)
-const mudar=()=>{
-if(vx){
-  setvx(false)
-}
-}
+  const [vx, setvx] = useState(false)
+  const mudar = () => {
+    if (vx) {
+      setvx(false)
+    }
+  }
   return (
     <>
- { vx &&
-       <C.c ><button onClick={()=>setvx(!vx)}>X</button ></C.c>
-       }
-    <div>
-      {mostrar && (
-        <C.container onClick={()=>mudar()}>
-       
-          <C.Head>
-            <div className='lado1'>
-            
-              <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)',cursor:'pointer' }} onClick={()=>setvx(!vx)} />
-             
-              <a href='/addtask' className='f'>
-                {' '}
-                <LibraryAddIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
-                <span>Add Task</span> 
-              </a>
-            </div>
-            <div className='lado2'>
-              <img src={`${foto}`}></img>
-              <div>
-                <span className='name'>{nome}</span>
-                <a href='/account' className='span'>
-                  My account{' '}
+      {vx && (
+        <C.c>
+         <CloseIcon  className='btnclose'  onClick={() => setvx(!vx)}/>
+          <div className='display'>
+          <div className='diferent'>About us</div>
+          <div>Cases</div>
+          <div>Resources</div>
+          
+          </div>
+        </C.c>
+      )}
+      <div>
+        {mostrar && (
+          <C.container onClick={() => mudar()}>
+            <C.Head>
+              <div className='lado1'>
+                <MenuIcon
+                  style={{
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => setvx(!vx)}
+                />
+
+                <a href='/addtask' className='f'>
+                  {' '}
+                  <LibraryAddIcon
+                    style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                  />
+                  <span>Add Task</span>
                 </a>
               </div>
-            </div>
-          </C.Head>
+              <div className='lado2'>
+                <img src={`${foto}`}></img>
+                <div>
+                  <span className='name'>{nome}</span>
+                  <a href='/account' className='span'>
+                    My account{' '}
+                  </a>
+                </div>
+              </div>
+            </C.Head>
 
-          <C.Area>
-            <div className='fd'>
-              <span>My Tasks</span>
-              <span className='span'>
-                Register your tasks and have a better monitoring of your
-                activities
-              </span>
-            </div>
-            <SearcArea value={busca} onChange={handlebuscaChange} />
-            <div className='fd'>
-              <span className='df'>Tasks-2</span>
-            </div>
+            <C.Area>
+              <div className='fd'>
+                <span>My Tasks</span>
+                <span className='span'>
+                  Register your tasks and have a better monitoring of your
+                  activities
+                </span>
+              </div>
+              <SearcArea value={busca} onChange={handlebuscaChange} />
+              <div className='fd'>
+                <span className='df'>Tasks-2</span>
+              </div>
 
-            {filtro.map((item, index) => (
-              <ListItem
-                key={index}
-                item={item}
-                onChange={handleTaskChange}
-                Delete={deleta}
-              />
-            ))}
-            <a href='/addtask' className='add'><AddBoxIcon style={ {color:'#B4ACF9',fontSize:'60px' }}  /> </a>
-         
-          </C.Area>
-        </C.container>
-      )}
-    </div>
+              {filtro.map((item, index) => (
+                <ListItem
+                  key={index}
+                  item={item}
+                  onChange={handleTaskChange}
+                  Delete={deleta}
+                />
+              ))}
+              <a href='/addtask' className='add'>
+                <AddBoxIcon style={{ color: '#B4ACF9', fontSize: '60px' }} />{' '}
+              </a>
+            </C.Area>
+          </C.container>
+        )}
+      </div>
     </>
   )
 }

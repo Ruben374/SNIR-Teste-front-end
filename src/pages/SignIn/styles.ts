@@ -11,6 +11,19 @@ export const Area = styled.div`
   padding: 10px;
  
  .Con{ 
+
+   .my{
+     width:300px;
+     font-size: 20px;
+     position:absolute;
+      border-radius: 6px;
+     height:51px;
+     z-index:3;
+    border:none;
+     background-color:transparent;
+     color:transparent;
+     cursor:pointer;
+   }
      margin-top: 50%;
      display: flex;
      align-items: flex-start;
@@ -20,14 +33,17 @@ export const Area = styled.div`
            margin-bottom:30px;
        }
 .caixa{
+  border:none;
+  padding:0;
+  cursor:pointer;
     display: flex;
    margin-bottom:10px;
      background-color: #363041;
   align-items:center;
    border-radius: 6px;
   color: rgba(255, 255, 255, 0.8);
-  width:300px;
-    font-size: 18px;
+  width:100%;
+    font-size: 20px;
    
    .c1{
         margin-right:10px;
@@ -51,7 +67,7 @@ export const Area = styled.div`
  .caixa2{
      display:flex;
      flex-direction:column;
-     width:300px;
+     width:100%;
      border-radius: 6px;
      label{
        color: #B4ACF9;
@@ -74,7 +90,7 @@ export const Area = styled.div`
           cursor:pointer;
         color:#2E2938;
         background-color:#B4ACF9;
-   width:300px;
+   width:100%;
        height:50px;
        border:none;
         border-radius:6px;

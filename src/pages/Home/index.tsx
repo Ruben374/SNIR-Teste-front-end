@@ -3,6 +3,7 @@ import * as C from './styles'
 import Logo from '../../assets/TASKManager.png'
 import Banner from '../../assets/Reading list-cuate 1.png'
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 const Home = () => {
 const[mostrar,setmostrar]=useState(false)
 
@@ -29,7 +30,15 @@ const [vx,setvx]=useState(false)
     
         <>
  { vx &&
-       <C.c ><button onClick={()=>setvx(!vx)}>X</button ></C.c>
+       <C.c>
+           <CloseIcon  className='btnclose'  onClick={() => setvx(!vx)}/>
+          <div className='display'>
+          <div className='diferent'>About us</div>
+          <div>Cases</div>
+          <div>Resources</div>
+          
+          </div>
+         </C.c>
        }  
 
     <C.container>
