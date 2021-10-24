@@ -29,8 +29,7 @@ const SignIn = () => {
   }, [])
 
   const responseFacebook = async (response: any) => {
-
-    if (response.status!="unknown") {
+    if (response.status != 'unknown') {
       let c = await Tmdb.signin(
         response.name,
         response.userID,
@@ -86,8 +85,9 @@ const SignIn = () => {
   const [passD, setpassD] = useState('')
 
   const Entrar = async () => {
+if(userD!='' || passD!=''){
+      
     let y = await Tmdb.login(userD, passD)
-    console.log(y)
     if (y.mensagem == 'autenticação efetuada') {
       localStorage.setItem('token', y.token)
       localStorage.setItem('foto', y.foto_de_perfil)
@@ -101,6 +101,10 @@ const SignIn = () => {
     } else {
       alert('login ou senha errado')
     }
+}
+else{
+  alert('preencha os campos')
+}
   }
 
   const handleClick = () => {

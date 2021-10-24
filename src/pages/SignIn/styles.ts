@@ -24,7 +24,7 @@ export const Area = styled.div`
      color:transparent;
      cursor:pointer;
    }
-     margin-top: 50%;
+     margin-top: 100px;
      display: flex;
      align-items: flex-start;
        flex-direction:column;

@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react'
 import * as C from './styles'
 import { Item } from '../../types/Item'
 import { ListItem } from '../../components/ListItem'
-import { AddArea } from '../../components/AddArea'
 import { SearcArea } from '../../components/SearcArea'
-import Image from '../../image.png'
+import { Header } from '../../components/Header'
 import AddBoxIcon from '@material-ui/icons/AddBox'
-import MenuIcon from '@material-ui/icons/Menu'
-import SearchIcon from '@material-ui/icons/Search'
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd'
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
-import CloseIcon from '@material-ui/icons/Close'
+
+
+
+
+import { SideBar } from '../../components/SideBar'
+
 
 import Tmdb from '../../Api'
 
@@ -83,57 +83,24 @@ const App = () => {
       setvx(false)
     }
   }
+  const handleDisplaySideBar = () => {
+    setvx(!vx)
+  }
+
   return (
     <>
-      {vx && (
-        <C.c>
-          <CloseIcon className='btnclose' onClick={() => setvx(!vx)} />
-          <div className='display'>
-            <div className='diferent'>About us</div>
-            <div>Cases</div>
-            <div>Resources</div>
-          </div>
-        </C.c>
-      )}
+      {vx && <SideBar type={true} onClick={handleDisplaySideBar} />}
       <div>
         {mostrar && (
           <C.container onClick={() => mudar()}>
-            <C.Head>
-              <div className='lado1'>
-                <MenuIcon
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.6)',
-                    cursor: 'pointer'
-                  }}
-                  onClick={() => setvx(!vx)}
-                />
-
-                <a href='/addtask' className='f'>
-                  {' '}
-                  <LibraryAddIcon
-                    style={{ color: 'rgba(255, 255, 255, 0.6)' }}
-                  />
-                  <span>Add Task</span>
-                </a>
-              </div>
-              <div className='lado2'>
-                <img src={`${foto}`}></img>
-                <div>
-                  <span className='name'>{nome}</span>
-                  <a href='/account' className='span'>
-                  My account
-                     <span style={{color:'white'}}> ⇾</span>
-                
-                  </a>
-                </div>
-                <a href='/account' className=''>
-                  <ArrowDownwardIcon className='arrow' />
-                </a>
-              </div>
-            </C.Head>
-
+            <Header
+              foto={foto}
+              nome={nome}
+              onClick={handleDisplaySideBar}
+              ShowBtnAdd={true}
+            />
             <C.Area>
-              <div className='fd'>
+              <div className='Informations'>
                 <span>My Tasks</span>
                 <span className='span'>
                   Register your tasks and have a better monitoring of your
@@ -141,8 +108,8 @@ const App = () => {
                 </span>
               </div>
               <SearcArea value={busca} onChange={handlebuscaChange} />
-              <div className='fd'>
-                <span className='df'>Tasks-2</span>
+              <div className='Taksbox'>
+                <span className='Taks2'>Tasks-2</span>
               </div>
 
               {filtro.map((item, index) => (

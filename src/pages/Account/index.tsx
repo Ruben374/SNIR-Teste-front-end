@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import * as C from './styles'
-import Logo from '../../assets/TASKManager.png'
-import Banner from '../../assets/Reading list-cuate 1.png'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import AddBoxIcon from '@material-ui/icons/AddBox'
-import MenuIcon from '@material-ui/icons/Menu'
-import CloseIcon from '@material-ui/icons/Close';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd'
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import Image from '../../image.png'
-import Imagem from '../../imagem.png'
-import Vetor from '../../vetor.png'
+import { Header } from '../../components/Header'
+import { SideBar } from '../../components/SideBar';
+import Vetor from '../../assets/vetor.png'
 
 const Account = () => {
   const [mostrar, setmostrar] = useState(false)
@@ -42,90 +35,74 @@ const Account = () => {
     window.location.href = '/'
   }
 
-  const [vx,setvx]=useState(false)
-const mudar=()=>{
-if(vx){
-  setvx(false)
-}
-}
+  const [vx, setvx] = useState(false)
+  const mudar = () => {
+    if (vx) {
+      setvx(false)
+    }
+  }
+
+  const handleDisplaySideBar = () => {
+    setvx(!vx)
+  }
+ 
 
   return (
     <>
-     {vx && (
-        <C.c>
-         <CloseIcon  className='btnclose'  onClick={() => setvx(!vx)}/>
-          <div className='display'>
-          <div className='diferent'>About us</div>
-          <div>Cases</div>
-          <div>Resources</div>
-          
-          </div>
-        </C.c>
-      )}   
-    <div>
-      {mostrar && (
-        <C.container onClick={()=>mudar()}>
-          <C.Head>
-            <div className='lado1'>
-             
-              <MenuIcon style={{ color: 'rgba(255, 255, 255, 0.6)',cursor:'pointer' }} onClick={()=>setvx(!vx)} />
-            
-              <a href='/addtask' className='f'>
-                {' '}
-                <LibraryAddIcon style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
-                <span>Add Task</span>
-              </a>
-            </div>
-                  <div className='lado2'>
-                <img src={`${foto}`}></img>
-                <div>
-                  <span className='name'>{nome}</span>
-                  <a href='/account' className='span'>
-                  My account
-                     <span style={{color:'white'}}> ⇾</span>
-                
-                  </a>
-                </div>
-                <a href='/account' className=''>
-                  <ArrowDownwardIcon className='arrow' />
-                </a>
-              </div>
-          </C.Head>
+      {vx && (
+       <SideBar 
+    type={true}
+    onClick={handleDisplaySideBar}
 
-          <C.Area>
-            <div className='Con'>
-              <div className='caixa'>
-                 <a href='javascript:history.back()'>  <ArrowBackIcon className='c1'/> </a>
-                <div className='c2'>
-                  {''}
-                  <div className='d1'> My profile</div>{' '}
-                  <div className='d2'>Preview my informations</div>
-                </div>
-              </div>
-              <div className='lado22'>
-                <img src={`${foto}`}></img>
-                <div>
-                  <span className='name'>{nome} </span>
-                  <span className='span'>Ruben André </span>
-                </div>
-              </div>
-            </div>
-            <div className='Banner'>
-              <div className='BannerLeft'>
-                <div className='BannerText1'>Display Name</div>
-                <div className='BannerText2'>{nome}</div>
-                <div className='BannerText1'>User</div>
-                <div className='BannerText2'>{usuario}</div>
-              </div>
-              <img src={Vetor} className='image' width='25%' />
-            </div>
-            <div className='btn'>
-              <button onClick={() => logout()}>log out</button>
-            </div>
-          </C.Area>
-        </C.container>
+    />
       )}
-    </div>
+      <div>
+        {mostrar && (
+          <C.container onClick={() => mudar()}>
+               <Header
+              foto={foto}
+              nome={nome}
+              onClick={handleDisplaySideBar}
+              ShowBtnAdd={true}
+            />
+
+            <C.Area>
+              <div className='Box'>
+                <div className='Boxin1'>
+                  <a href='javascript:history.back()'>
+                    {' '}
+                    <ArrowBackIcon className='Backicon' />{' '}
+                  </a>
+                  <div className='Informations'>
+                    {''}
+                    <div className='d1'> My profile</div>{' '}
+                    <div className='d2'>Preview my informations</div>
+                  </div>
+                </div>
+                <div className='Image'>
+                  <img src={`${foto}`}></img>
+                  <div>
+                    <span className='name'>{nome} </span>
+                    <span className='span'>My account</span>
+                  </div>
+                </div>
+              </div>
+              <div className='Banner'>
+                <div className='BannerLeft'>
+                  <div className='BannerText1'>Display Name</div>
+                  <div className='BannerText2'>{nome}</div>
+                  <div className='BannerText1'>User</div>
+                  <div className='BannerText2'>{usuario}</div>
+                </div>
+                <img src={Vetor} className='image' width='25%' />
+              </div>
+              <div className='btn'>
+                <button onClick={() => logout()}>log out</button>
+              </div>
+            </C.Area>
+          </C.container>
+        )}
+      </div>
     </>
   )
 }

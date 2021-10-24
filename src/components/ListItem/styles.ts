@@ -14,13 +14,13 @@ export const container = styled.div(
     margin-top:10px;
     align-items:center;
     justify-content:space-between;
-  .divpai{
+  .Box{
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
 padding-bottom:10px;
-    .divfilho1{
+    .Boxin1{
     display:flex;
     align-items:center;
    
@@ -29,7 +29,7 @@ padding-bottom:10px;
     height:25px;
     margin-right:15px;
     }
-    .bn{
+    .Boxdate{
       display:flex;
       flex-direction:column; 
       justify-content:center;
