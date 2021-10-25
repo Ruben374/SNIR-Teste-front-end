@@ -38,6 +38,10 @@ export const Area = styled.div`
       }
     }
     .Headerbtn {
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content: center;
       @media (max-width: 800px) {
         display: none;
       }

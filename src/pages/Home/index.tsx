@@ -48,7 +48,7 @@ const Home = () => {
                 </a>
                 <a href='#'>Resources</a>
               </div>
-              <button className='Headerbtn'>Sign in</button>
+              <a href='/signin' className='Headerbtn'>Sign in</a>
               <div className='menu'>
                 {' '}
                 <MenuIcon
