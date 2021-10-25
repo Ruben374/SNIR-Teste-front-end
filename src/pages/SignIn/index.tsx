@@ -9,7 +9,7 @@ import Facebook_icon from '../../assets/facebook-icon.png'
 import FacebookLogin from 'react-facebook-login'
 
 import GoogleLogin from 'react-google-login'
-import ReactFacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+
 
 const SignIn = () => {
   const [mostrar, setmostrar] = useState(false)
