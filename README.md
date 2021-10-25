@@ -3,7 +3,7 @@
 
 ### Esta é uma todo list, desenvolvida para um teste no [GRUPO SNIR](https://snir.co.ao/) 
 
->Status:completed✔️
+>Status:completado✔️
 
 ### Sobre o desafio
 
